@@ -33,7 +33,7 @@ public class Main {
     }
 
     //  1. Создайте метод printThreeWords(), который при вызове должен отпечатать
-//  в столбец три слова: Orange, Banana, Apple.
+    //  в столбец три слова: Orange, Banana, Apple.
     public static void printThreeWords() {
         System.out.println("Orange");
         System.out.println("Banana");
@@ -46,9 +46,9 @@ public class Main {
 
     public static void checkSumSign() {
         int a = -87;
-        int b = 87;
+        int b =10;
         int sum = a+b;
-        if (sum >= 0) {
+        if  (sum >= 0) {
             System.out.println("Сумма положительная");
         } else {
             System.out.println("Сумма отрицательная");
@@ -64,7 +64,7 @@ public class Main {
         int value = -56;
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value <= 100) {
+        } else if (value <= 100)  {
             System.out.println("Желтый");
         } else {
             System.out.println("Зеленый");
@@ -76,10 +76,10 @@ public class Main {
 //  Если a больше или равно b, то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”.
 
     public static void compareNumbers() {
-        int a = 98;
-        int b = 32;
-        if (a >= b) {
-            System.out.println("a >= b");
+        int a=98;
+        int b=32;
+        if (a>= b) {
+             System.out.println("a >= b");
         } else {
             System.out.println("a < b");
         }
@@ -90,7 +90,7 @@ public class Main {
 
     public static boolean Number5(int a, int b) {
         int sum = a + b;
-        if (sum >= 10 && sum <= 20) {
+         if (sum >= 10 && sum <= 20) {
             return true;
         } else {
             return false;
@@ -113,7 +113,7 @@ public class Main {
 //    Замечание: ноль считаем положительным числом.
 
     public static boolean Number7(int a) {
-        if (a < 0) {
+        if (a<0) {
             return true;
         } else {
             return false;
@@ -124,7 +124,7 @@ public class Main {
 //    метод должен отпечатать в консоль указанную строку, указанное количество раз.
 
     public static void Number8(String text, int count) {
-        for (int i = 0; i < count; i++) {
+        for(int i = 0; i < count; i++) {
             System.out.println(text);
         }
     }
@@ -135,14 +135,11 @@ public class Main {
 
     public static boolean Number9(int year) {
         if (year % 400 == 0) {
-            return true;
-        }
+            return true;}
         if (year % 100 == 0) {
-            return false;
-        }
+            return false;}
         if (year % 4 == 0) {
-            return true;
-        }
+            return true; }
         return false;
     }
 
@@ -150,12 +147,12 @@ public class Main {
 //    Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. С помощью цикла и условия заменить 0 на 1, 1 на 0.
 
     public static void Number10() {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        for (int i = 0; i < arr.length; i++) {
+        int[] arr= {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i=0; i < arr.length; i++) {
             if (arr[i] == 0) {
-                arr[i] = 1;
-            } else {
-                arr[i] = 0;
+                arr[i]=1;  }
+            else {
+                arr[i]= 0;
             }
         }
         for (int i = 0; i < arr.length; i++) {
@@ -172,8 +169,7 @@ public class Main {
             arr[i] = i + 1;
         }
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+            System.out.print(arr[i] + " ");}
         System.out.println();
     }
 
@@ -182,13 +178,12 @@ public class Main {
     public static void Number12() {
         int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
+            if (arr[i]<6) {
                 arr[i] = arr[i] * 2;
             }
         }
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+            System.out.print(arr[i] + " ");   }
         System.out.println();
     }
 
@@ -200,14 +195,14 @@ public class Main {
     public static void Number13() {
         int s = 4;
         int[][] arr = new int[s][s];
-        for (int i = 0; i < s; i++) {
+         for (int i = 0; i < s; i++) {
             arr[i][i] = 1;
         }
         for (int i = 0; i < s; i++) {
             for (int j = 0; j < s; j++) {
                 System.out.print(arr[i][j] + " ");
             }
-            System.out.println();
+             System.out.println();
         }
     }
 
@@ -223,8 +218,7 @@ public class Main {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
-        return arr;
-    }
+        return arr;}
 }
 
 
