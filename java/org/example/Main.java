@@ -32,7 +32,7 @@ public class Main {
         Number14(6, 6);
     }
 
-//  1. Создайте метод printThreeWords(), который при вызове должен отпечатать
+    //  1. Создайте метод printThreeWords(), который при вызове должен отпечатать
 //  в столбец три слова: Orange, Banana, Apple.
     public static void printThreeWords() {
         System.out.println("Orange");
@@ -45,14 +45,15 @@ public class Main {
 //   то вывести в консоль сообщение “Сумма положительная”, в противном случае - “Сумма отрицательная”.
 
     public static void checkSumSign() {
-        int a=-87;
-        int b=87;
-        int sum=a+b;
-        if (sum>=0) {
-            System.out.println ("Сумма положительная");}
-        else {
-            System.out.println ("Сумма отрицательная"); }
+        int a = -87;
+        int b = 87;
+        int sum = a+b;
+        if (sum >= 0) {
+            System.out.println("Сумма положительная");
+        } else {
+            System.out.println("Сумма отрицательная");
         }
+    }
 
 //  3. Создайте метод printColor() в теле которого задайте int переменную value и инициализируйте ее любым значением.
 //  Если value меньше 0 (0 включительно), то в консоль метод должен вывести сообщение “Красный”,
@@ -60,13 +61,14 @@ public class Main {
 //  если больше 100 (100 исключительно) - “Зеленый”.
 
     public static void printColor() {
-        int value=-56;
-        if (value<=0) {
-            System.out.println("Красный");}
-        else if (value<=100) {
-            System.out.println("Желтый");}
-        else {
-            System.out.println("Зеленый");}
+        int value = -56;
+        if (value <= 0) {
+            System.out.println("Красный");
+        } else if (value <= 100) {
+            System.out.println("Желтый");
+        } else {
+            System.out.println("Зеленый");
+        }
     }
 
 //  4. Создайте метод compareNumbers(), в теле которого объявите две int переменные a и b,
@@ -74,33 +76,34 @@ public class Main {
 //  Если a больше или равно b, то необходимо вывести в консоль сообщение “a >= b”, в противном случае “a < b”.
 
     public static void compareNumbers() {
-        int a=98;
-        int b=32;
-        if (a>=b) {
-            System.out.println("a >= b");}
-        else {
-            System.out.println("a < b");}
+        int a = 98;
+        int b = 32;
+        if (a >= b) {
+            System.out.println("a >= b");
+        } else {
+            System.out.println("a < b");
+        }
     }
 
 //  5. Напишите метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах от 10 до 20
 //  (включительно), если да – вернуть true, в противном случае – false.
 
-    public static boolean Number5 (int a,int b) {
-        int sum=a+b;
-        if (sum>=10 && sum<=20) {
-            return true;}
-        else {
-            return false;}
+    public static boolean Number5(int a, int b) {
+        int sum = a + b;
+        if (sum >= 10 && sum <= 20) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 //   6. Напишите метод, которому в качестве параметра передается целое число, метод должен напечатать в консоль,
 //    положительное ли число передали или отрицательное. Замечание: ноль считаем положительным числом.
 
-    public static void Number6 (int a) {
-        if (a>=0)
-        {
-            System.out.println("Положительное число");}
-        else {
+    public static void Number6(int a) {
+        if (a >= 0) {
+            System.out.println("Положительное число");
+        } else {
             System.out.println("Отрицательное число");
         }
     }
@@ -110,9 +113,9 @@ public class Main {
 //    Замечание: ноль считаем положительным числом.
 
     public static boolean Number7(int a) {
-        if (a<0) {
-            return true;}
-        else {
+        if (a < 0) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -121,7 +124,7 @@ public class Main {
 //    метод должен отпечатать в консоль указанную строку, указанное количество раз.
 
     public static void Number8(String text, int count) {
-        for (int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.println(text);
         }
     }
@@ -131,12 +134,15 @@ public class Main {
 //    при этом каждый 400-й – високосный.
 
     public static boolean Number9(int year) {
-        if (year%400==0) {
-            return true;}
-        if (year%100==0) {
-            return false;}
-        if (year%4==0) {
-            return true;}
+        if (year % 400 == 0) {
+            return true;
+        }
+        if (year % 100 == 0) {
+            return false;
+        }
+        if (year % 4 == 0) {
+            return true;
+        }
         return false;
     }
 
@@ -144,15 +150,16 @@ public class Main {
 //    Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. С помощью цикла и условия заменить 0 на 1, 1 на 0.
 
     public static void Number10() {
-        int[] arr = {1,1,0,0,1,0,1,1,0,0};
-        for (int i=0; i<arr.length; i++) {
-            if (arr[i]==0) {
-                arr[i]=1;
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                arr[i] = 1;
             } else {
-                arr[i]=0;}
+                arr[i] = 0;
+            }
         }
-        for (int i=0; i<arr.length; i++) {
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
@@ -160,10 +167,11 @@ public class Main {
 //    11. Задать пустой целочисленный массив длиной 100. С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 ... 100.
 
     public static void Number11() {
-        int[] arr=new int[100];
-        for (int i=0; i<arr.length; i++) {
-            arr[i]=i+1;}
-        for (int i= 0; i<arr.length; i++) {
+        int[] arr = new int[100];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i + 1;
+        }
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
@@ -173,11 +181,12 @@ public class Main {
 
     public static void Number12() {
         int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i=0; i<arr.length; i++) {
-            if (arr[i]<6) {
-                arr[i]=arr[i] * 2;}
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 6) {
+                arr[i] = arr[i] * 2;
+            }
         }
-        for (int i=0; i<arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
@@ -189,13 +198,14 @@ public class Main {
 //    то есть [0][0], [1][1], [2][2], ..., [n][n].
 
     public static void Number13() {
-        int s=4;
+        int s = 4;
         int[][] arr = new int[s][s];
-        for (int i=0; i<s; i++) {
-            arr[i][i] = 1;}
+        for (int i = 0; i < s; i++) {
+            arr[i][i] = 1;
+        }
         for (int i = 0; i < s; i++) {
             for (int j = 0; j < s; j++) {
-                System.out.print(arr[i][j]+ " ");
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }
@@ -206,10 +216,12 @@ public class Main {
 
     public static int[] Number14(int len, int initialValue) {
         int[] arr = new int[len];
-        for (int i= 0; i < arr.length; i++) {
-            arr[i] = initialValue;}
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");}
+            arr[i] = initialValue;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
         System.out.println();
         return arr;
     }
