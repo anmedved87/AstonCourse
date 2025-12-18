@@ -30,6 +30,7 @@ public class Product {
         System.out.println("Страна происхождения: " + country);
         System.out.println("Цена: " + price + "BYN");
         System.out.println("Состояние бронирования покупателем:" + state);
+        System.out.println();
     }
 }
 
