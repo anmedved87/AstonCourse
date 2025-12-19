@@ -2,33 +2,33 @@ package org.example;
 
 public class Circle implements Shape {
 
-    private double radius;
-    private String fillColor;
-    private String borderColor;
+    private double r;
+    private String fill;
+    private String border;
 
-    public Circle(double radius, String fillColor, String borderColor) {
-        this.radius = radius;
-        this.fillColor = fillColor;
-        this.borderColor = borderColor;
+    public Circle(double r, String fill, String border) {
+        this.r = r;
+        this.fill = fill;
+        this.border = border;
     }
 
     @Override
     public double getPerimeter() {
-        return circlePerimeter(radius);
+        return circlePerimeter(r);
     }
 
     @Override
     public double getArea() {
-        return circleArea(radius);
+        return circleArea(r);
     }
 
     @Override
     public String getFillColor() {
-        return fillColor;
+        return fill;
     }
 
     @Override
     public String getBorderColor() {
-        return borderColor;
+        return border;
     }
 }

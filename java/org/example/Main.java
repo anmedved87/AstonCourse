@@ -37,13 +37,18 @@ public class Main {
         System.out.println("Добавление корма");
         bowl.addFood(10);
         System.out.println("Остаток корма: " + bowl.getFood());
-
+        System.out.println();
         System.out.println("Геометрические фигуры");
-        Shape circle = new Circle(5, "red", "black");
-        Shape rectangle = new Rectangle(4, 6, "blue", "green");
-        Shape triangle = new Triangle(3, 4, 5, 2.5, "yellow", "gray");
+        Shape circle = new Circle(5, "purple", "yellow");
+        Shape rect = new Rectangle(5, 10, "red", "green");
+        Shape tri = new Triangle(3, 4, 5, 3, "blue", "gray");
+        System.out.println("Круг");
         circle.printInfo();
-        rectangle.printInfo();
-        triangle.printInfo();
+        System.out.println();
+        System.out.println("Прямоугольник");
+        rect.printInfo();
+        System.out.println();
+        System.out.println("Треугольник");
+        tri.printInfo();
     }
 }

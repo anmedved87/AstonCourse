@@ -5,36 +5,36 @@ public class Triangle implements Shape {
     private double a;
     private double b;
     private double c;
-    private double heightToA; // высота к стороне a
-    private String fillColor;
-    private String borderColor;
+    private double h;
+    private String fill;
+    private String border;
 
-    public Triangle(double a, double b, double c, double heightToA, String fillColor, String borderColor) {
+    public Triangle(double a, double b, double c, double h, String fill, String border) {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.heightToA = heightToA;
-        this.fillColor = fillColor;
-        this.borderColor = borderColor;
+        this.h = h;
+        this.fill = fill;
+        this.border = border;
     }
 
     @Override
     public double getPerimeter() {
-        return trianglePerimeter(a, b, c);
+        return triPerimeter(a, b, c);
     }
 
     @Override
     public double getArea() {
-        return triangleAreaByBaseHeight(a, heightToA);
+        return triArea(a, h);
     }
 
     @Override
     public String getFillColor() {
-        return fillColor;
+        return fill;
     }
 
     @Override
     public String getBorderColor() {
-        return borderColor;
+        return border;
     }
 }
