@@ -1,17 +1,41 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("Бег и плавание");
+        Dog dog = new Dog("Тузик");
+        Cat cat = new Cat("Смоки", 5);
+        dog.run(666);
+        dog.swim(5);
+        cat.run(170);
+        cat.swim(11);
+        System.out.println();
+        System.out.println("Кол-во животных: " + Animal.count());
+        System.out.println("Собак: " + Dog.count());
+        System.out.println("Котов: " + Cat.getCatsCount());
+        System.out.println();
+        System.out.println("Корм для котов");
+        Miska bowl = new Miska(25);
+
+        Cat[] cats = {
+                new Cat("Мила", 15),
+                new Cat("Кеша", 7),
+                new Cat("Буся", 10)
+        };
+        for (Cat c : cats) {
+            c.eat(bowl);
+            System.out.println("Остаток корма: " + bowl.getFood());
         }
+
+        System.out.println();
+        System.out.println("Сытость");
+        for (Cat c : cats) {
+            System.out.println(c.name + " сыт:" + c.isSatiety());
+        }
+        System.out.println();
+        System.out.println("Добавление корма");
+        bowl.addFood(10);
+        System.out.println("Остаток корма: " + bowl.getFood());
     }
 }
