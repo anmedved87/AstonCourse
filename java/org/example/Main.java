@@ -2,30 +2,6 @@ package org.example;
 
 import java.util.*;
 
-class Student {
-    String name;
-    String group;
-    int course;
-    List<Integer> marks;
-
-
-    Student(String name, String group, int course, List<Integer> marks) {
-        this.name = name;
-        this.group = group;
-        this.course = course;
-        this.marks = marks;
-    }
-
-
-    double averageMarks() {
-        int sum = 0;
-        for (int m : marks) {
-            sum = sum + m;
-        }
-        return (double) sum / marks.size();
-    }
-}
-
 public class Main {
 
     static void deleteStudent(Set<Student> students) {
@@ -72,11 +48,23 @@ public class Main {
         System.out.println();
         deleteStudent(students);
         transferStudent(students);
-        System.out.println("\n Результат перевода студентов");
-        System.out.println();
+        System.out.println("Результат перевода студентов");
         printStudents(students, 2);
         System.out.println();
         printStudents(students, 3);
+        System.out.println();
+
+        Phone pb = new Phone();
+        pb.add("Медведева", "+375333333333");
+        pb.add("Исаков", "+375336524896");
+        pb.add("Иванов", "+375297332510");
+        pb.add("Медведева", "+375291234568");
+        System.out.println("Телефонный справочник:");
+        pb.get("Медведева");
+        pb.get("Исаков");
+        pb.get("Иванов");
+        pb.get("Васильков");
+
     }
 
 }
