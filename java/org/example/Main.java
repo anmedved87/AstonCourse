@@ -8,7 +8,7 @@ public class Main {
         Iterator<Student> it = students.iterator();
         while (it.hasNext()) {
             Student s = it.next();
-            if (s.averageMarks() < 3.0) {
+            if (s.averageMarks() < 3) {
                 it.remove();
             }
         }
@@ -17,7 +17,7 @@ public class Main {
 
     static void transferStudent(Set<Student> students) {
         for (Student s : students) {
-            if (s.averageMarks() >= 3.0) {
+            if (s.averageMarks() >= 3) {
                 s.course = s.course + 1;
             }
         }
