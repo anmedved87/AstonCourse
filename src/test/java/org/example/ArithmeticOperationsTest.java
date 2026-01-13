@@ -8,7 +8,7 @@ public class ArithmeticOperationsTest {
 
     @Test
     void testAddition() {
-        Assertions.assertEquals(6, a.addition(3, 3));
+        Assertions.assertEquals(5, a.addition(2, 3));
     }
 
 
