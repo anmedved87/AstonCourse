@@ -1,6 +1,7 @@
 package org.example;
 
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.*;
 
 public class ArithmeticOperationsTest {
@@ -30,4 +31,5 @@ public class ArithmeticOperationsTest {
     public void testDivisionZero() {
         a.division(3, 0);
     }
+
 }

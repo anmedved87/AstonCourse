@@ -16,6 +16,7 @@ public class FactorialTest {
         Assert.assertEquals(f.factorial(0), 1);
     }
 
+
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testFactorialNegative() {
         Factorial f = new Factorial();
