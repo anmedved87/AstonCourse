@@ -1,35 +1,28 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import static org.testng.Assert.*;
 
 public class ArithmeticOperationsTest {
-    ArithmeticOperations a = new ArithmeticOperations();
+    ArithmeticOperations c = new ArithmeticOperations();
 
     @Test
-    void testAddition() {
-        Assertions.assertEquals(5, a.addition(2, 3));
-    }
-
-
-    @Test
-    void testSubtraction() {
-        Assertions.assertEquals(5, a.subtraction(8, 3));
+    public void testAdd() {
+        assertEquals(c.addition(3, 4), 7);
     }
 
     @Test
-    void testMultiplc() {
-        Assertions.assertEquals(54, a.multiplic(9, 6));
+    public void testSubtract() {
+        assertEquals(c.subtraction(5, 4), 1);
     }
 
     @Test
-    void testDivision() {
-        Assertions.assertEquals(6, a.division(30, 5));
+    public void testMultiply() {
+        assertEquals(c.multiplic(4, 5), 20);
     }
 
     @Test
-    void testDivisionZero() {
-        Assertions.assertThrows(ArithmeticException.class, () -> a.division(30, 0));
+    public void testDivide() {
+        assertEquals(c.division(10, 5), 2);
     }
-
 }

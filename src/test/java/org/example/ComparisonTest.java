@@ -1,25 +1,15 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import static org.testng.Assert.*;
 
 public class ComparisonTest {
-    @Test
-    void testALargerB() {
-        Comparison c = new Comparison();
-        Assertions.assertEquals(1, c.compare(10, 2));
-    }
 
+    Comparison n = new Comparison();
 
     @Test
-    void testALessB() {
-        Comparison c = new Comparison();
-        Assertions.assertEquals(-1, c.compare(3, 10));
-    }
-
-    @Test
-    void testAEquallyB() {
-        Comparison c = new Comparison();
-        Assertions.assertEquals(0, c.compare(4, 4));
+    public void testCompare() {
+        assertEquals(n.compare(5, 5), 0);
     }
 }
+

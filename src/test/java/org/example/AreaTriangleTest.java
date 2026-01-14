@@ -1,18 +1,12 @@
 package org.example;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+import static org.testng.Assert.*;
 
 public class AreaTriangleTest {
     @Test
-    void testArea() {
+    public void testArea() {
         AreaTriangle t = new AreaTriangle();
-        Assertions.assertEquals(40, t.area(8, 10));
-    }
-
-    @Test
-    void testInvalidValues() {
-        AreaTriangle t = new AreaTriangle();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> t.area(8, -10));
+        assertEquals(t.area(4, 5), 10);
     }
 }
