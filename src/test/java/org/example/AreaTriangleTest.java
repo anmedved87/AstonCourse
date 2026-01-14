@@ -16,3 +16,4 @@ public class AreaTriangleTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> t.area(8, -10));
     }
 }
+
