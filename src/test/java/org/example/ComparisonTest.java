@@ -1,15 +1,24 @@
 package org.example;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 public class ComparisonTest {
-
-    Comparison n = new Comparison();
+    Comparison c = new Comparison();
 
     @Test
-    public void testCompare() {
-        assertEquals(n.compare(5, 5), 0);
+    public void testALargerB() {
+        Assert.assertEquals(c.compare(10, 5), 1);
+    }
+
+    @Test
+    public void testALessB() {
+        Assert.assertEquals(c.compare(3, 7), -1);
+    }
+
+    @Test
+    public void testAEquallyB() {
+        Assert.assertEquals(c.compare(5, 5), 0);
     }
 }
 

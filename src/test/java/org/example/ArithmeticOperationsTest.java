@@ -4,25 +4,30 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class ArithmeticOperationsTest {
-    ArithmeticOperations c = new ArithmeticOperations();
+    ArithmeticOperations a = new ArithmeticOperations();
 
     @Test
-    public void testAdd() {
-        assertEquals(c.addition(3, 4), 7);
+    public void testAddition() {
+        assertEquals(a.addition(3, 3), 6);
     }
 
     @Test
-    public void testSubtract() {
-        assertEquals(c.subtraction(5, 4), 1);
+    public void testSubtraction() {
+        assertEquals(a.subtraction(8, 3), 5);
     }
 
     @Test
-    public void testMultiply() {
-        assertEquals(c.multiplic(4, 5), 20);
+    public void testMultiplc() {
+        assertEquals(a.multiplic(9, 6), 54);
     }
 
     @Test
-    public void testDivide() {
-        assertEquals(c.division(10, 5), 2);
+    public void testDivision() {
+        assertEquals(a.division(10, 5), 2);
+    }
+
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void testDivisionZero() {
+        a.division(3, 0);
     }
 }

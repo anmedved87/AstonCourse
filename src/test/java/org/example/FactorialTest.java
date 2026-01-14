@@ -1,12 +1,24 @@
 package org.example;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 public class FactorialTest {
     @Test
-    public void testFactorial() {
+    public void testFactorialPositive() {
         Factorial f = new Factorial();
-        assertEquals(f.factorial(5), 120);
+        Assert.assertEquals(f.factorial(3), 6);
+    }
+
+    @Test
+    public void testFactorialZero() {
+        Factorial f = new Factorial();
+        Assert.assertEquals(f.factorial(0), 1);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testFactorialNegative() {
+        Factorial f = new Factorial();
+        f.factorial(-3);
     }
 }
