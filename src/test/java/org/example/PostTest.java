@@ -8,6 +8,7 @@ public class PostTest {
 
     @Test
     void testPost() {
+
         String json = "{\"name\":\"Anastasiya\",\"surname\":\"Medvedeva\"}";
 
         given()
