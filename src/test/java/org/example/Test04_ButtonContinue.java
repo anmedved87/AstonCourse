@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Test04_ButtonContinue extends DriverTest {
     @Test
-    void fillConnectionFormAndCheckContinueButton() {
+    void buttonContinue() {
         driver.get("https://www.mts.by/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         try {
@@ -38,8 +38,7 @@ public class Test04_ButtonContinue extends DriverTest {
         WebElement amountInput = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.id("connection-sum")
-                )
-        );
+                ));
         amountInput.click();
         amountInput.sendKeys("10");
 

@@ -19,8 +19,7 @@ public class Test01_NameBlock extends DriverTest {
         try {
             WebElement cookieButton = wait.until(
                     ExpectedConditions.elementToBeClickable(
-                            By.xpath("//button[contains(text(),'Принять')]")
-                    )
+                            By.xpath("//button[contains(text(),'Принять')]"))
             );
             cookieButton.click();
         } catch (Exception ignored) {
@@ -31,8 +30,7 @@ public class Test01_NameBlock extends DriverTest {
 
         WebElement blockTitle = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//h2[contains(.,'Онлайн пополнение') and contains(.,'без комиссии')]")
-                )
+                        By.xpath("//h2[contains(.,'Онлайн пополнение') and contains(.,'без комиссии')]"))
         );
         String actualText = blockTitle.getText().replace("\n", " ").trim();
         assertEquals("Онлайн пополнение без комиссии", actualText);

@@ -32,8 +32,7 @@ public class Test02_VisibilityLogo extends DriverTest {
         List<WebElement> logos = wait.until(
                 ExpectedConditions.presenceOfAllElementsLocatedBy(
                         By.cssSelector(".pay__partners img")
-                )
-        );
+                ));
 
         assertFalse(logos.isEmpty(), "Логотипы платёжных систем не отображаются");
         assertTrue(logos.size() >= 4, "Должны отображаться 4 логотипа платёжных систем");

@@ -22,7 +22,7 @@ public class Test03_AboutService extends DriverTest {
                             By.xpath("//button[contains(text(),'Принять')]")
                     )
             );
-            cookieButton.click();
+         cookieButton.click();
         } catch (Exception ignored) {
         }
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1800);");
@@ -30,8 +30,7 @@ public class Test03_AboutService extends DriverTest {
         WebElement link = wait.until(
                 ExpectedConditions.elementToBeClickable(
                         By.xpath("//a[contains(text(),'Подробнее о сервисе')]")
-                )
-        );
+                ));
 
         assertTrue(link.isDisplayed(), "Ссылка (Подробнее о сервисе) не отображается");
         link.click();

@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DriverTest {
 
     protected WebDriver driver;
-
     @BeforeEach
     void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
