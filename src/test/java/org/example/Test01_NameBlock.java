@@ -11,13 +11,11 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NameBlockTest extends DriverTest {
+public class Test01_NameBlock extends DriverTest {
     @Test
     void nameBlock() {
         driver.get("https://www.mts.by/");
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         try {
             WebElement cookieButton = wait.until(
                     ExpectedConditions.elementToBeClickable(
@@ -29,7 +27,7 @@ public class NameBlockTest extends DriverTest {
         }
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 1700);");
+        js.executeScript("window.scrollBy(0,1800);");
 
         WebElement blockTitle = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
