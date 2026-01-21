@@ -8,15 +8,15 @@ import java.time.Duration;
 
 public class OnlineTopUpPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public OnlineTopUpPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // ---------------- Общие действия ----------------
+    // ---------- Общие действия ----------
 
     public OnlineTopUpPage open() {
         driver.get("https://www.mts.by/");
@@ -33,12 +33,13 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    public OnlineTopUpPage scroll() {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1800);");
+    public OnlineTopUpPage scrollToForm() {
+        ((JavascriptExecutor) driver)
+                .executeScript("window.scrollBy(0,1800)");
         return this;
     }
 
-    // ---------------- Выпадающий список вкладок ----------------
+    // ---------- Выбор типа услуги ----------
 
     private void openDropdown() {
         wait.until(ExpectedConditions.elementToBeClickable(
@@ -78,7 +79,7 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    // ---------------- Услуги связи ----------------
+    // ---------- Услуги связи ----------
 
     public WebElement servicesPhone() {
         return driver.findElement(By.id("connection-phone"));
@@ -108,73 +109,49 @@ public class OnlineTopUpPage {
         return servicesEmail().getAttribute("placeholder");
     }
 
-    // ---------------- Домашний интернет ----------------
-
-    public WebElement internetPhone() {
-        return driver.findElement(By.id("internet-phone"));
-    }
-
-    public WebElement internetSum() {
-        return driver.findElement(By.id("internet-sum"));
-    }
-
-    public WebElement internetEmail() {
-        return driver.findElement(By.id("internet-email"));
-    }
+    // ---------- Домашний интернет ----------
 
     public String internetPhonePH() {
-        return internetPhone().getAttribute("placeholder");
+        return driver.findElement(By.id("internet-phone"))
+                .getAttribute("placeholder");
     }
 
     public String internetSumPH() {
-        return internetSum().getAttribute("placeholder");
+        return driver.findElement(By.id("internet-sum"))
+                .getAttribute("placeholder");
     }
 
     public String internetEmailPH() {
-        return internetEmail().getAttribute("placeholder");
+        return driver.findElement(By.id("internet-email"))
+                .getAttribute("placeholder");
     }
 
-    // ---------------- Рассрочка ----------------
-
-    public WebElement installmentScore() {
-        return driver.findElement(By.id("score-instalment"));
-    }
-
-    public WebElement installmentSum() {
-        return driver.findElement(By.id("instalment-sum"));
-    }
-
-    public WebElement installmentEmail() {
-        return driver.findElement(By.id("instalment-email"));
-    }
+    // ---------- Рассрочка ----------
 
     public String installmentScorePH() {
-        return installmentScore().getAttribute("placeholder");
+        return driver.findElement(By.id("score-instalment"))
+                .getAttribute("placeholder");
     }
 
     public String installmentSumPH() {
-        return installmentSum().getAttribute("placeholder");
+        return driver.findElement(By.id("instalment-sum"))
+                .getAttribute("placeholder");
     }
 
     public String installmentEmailPH() {
-        return installmentEmail().getAttribute("placeholder");
+        return driver.findElement(By.id("instalment-email"))
+                .getAttribute("placeholder");
     }
 
-    // ---------------- Задолженность ----------------
-
-    public WebElement debtScore() {
-        return driver.findElement(By.id("score-arrears"));
-    }
-
-    public WebElement debtSum() {
-        return driver.findElement(By.id("arrears-sum"));
-    }
+    // ---------- Задолженность ----------
 
     public String debtScorePH() {
-        return debtScore().getAttribute("placeholder");
+        return driver.findElement(By.id("score-arrears"))
+                .getAttribute("placeholder");
     }
 
     public String debtSumPH() {
-        return debtSum().getAttribute("placeholder");
+        return driver.findElement(By.id("arrears-sum"))
+                .getAttribute("placeholder");
     }
 }

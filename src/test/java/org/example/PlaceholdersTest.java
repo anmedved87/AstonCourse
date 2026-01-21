@@ -2,16 +2,17 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlaceholdersTest extends DriverTest {
 
     @Test
     void checkPlaceholders() {
+
         OnlineTopUpPage page = new OnlineTopUpPage(driver)
                 .open()
                 .closeCookies()
-                .scroll();
+                .scrollToForm();
 
         page.tabServices();
         assertEquals("Номер телефона", page.servicesPhonePH());

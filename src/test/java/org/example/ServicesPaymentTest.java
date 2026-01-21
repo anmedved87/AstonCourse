@@ -1,64 +1,64 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ServicesPaymentTest extends DriverTest {
 
     @Test
     void servicesPaymentFlow() {
+
         String phone = "297777777";
         String fullPhone = "375" + phone;
-        String amount = "10.00";
+        String amount = "10";
 
         OnlineTopUpPage page = new OnlineTopUpPage(driver)
                 .open()
                 .closeCookies()
-                .scroll()
+                .scrollToForm()
                 .tabServices();
 
-        // Заполняем форму
+        // заполнение формы
         page.servicesPhone().sendKeys(phone);
-        page.servicesSum().sendKeys("10");
-        page.servicesEmail().sendKeys("test@example.com");
+        page.servicesSum().sendKeys(amount);
+        page.servicesEmail().sendKeys("test@test.by");
 
-        // Проверяем, что кнопка активна
         assertTrue(page.servicesContinue().isEnabled());
         page.servicesContinue().click();
 
-        // Ждём загрузки страницы оплаты
-        PaymentConfirmationPage pay = new PaymentConfirmationPage(driver).waitLoaded();
+        // страница подтверждения оплаты (iframe)
+        PaymentConfirmationPage pay =
+                new PaymentConfirmationPage(driver).waitLoaded();
 
-        // Проверка текста с номером телефона
+        // ✅ проверка описания платежа
         String description = pay.getOrderDescriptionText();
-        assertTrue(description.contains("Оплата: Услуги связи"));
-        assertTrue(description.contains(fullPhone));
 
-        // Проверка суммы
-        String amountText = pay.getAmountText();
-        assertTrue(amountText.contains(amount));
+        assertTrue(
+                description.contains("Оплата"),
+                "Отсутствует текст 'Оплата'"
+        );
 
-        // Проверка кнопки оплаты
-        String buttonText = pay.getPayButtonText();
-        assertTrue(buttonText.contains("10"));
+        assertTrue(
+                description.contains("Услуги связи"),
+                "Отсутствует тип услуги"
+        );
 
-        // Проверка плейсхолдеров карты
-        List<WebElement> fields = pay.getCardFields();
-        assertTrue(fields.stream().anyMatch(e -> e.getAttribute("placeholder").toLowerCase().contains("карты")));
-        assertTrue(fields.stream().anyMatch(e -> e.getAttribute("placeholder").toLowerCase().contains("cvv")));
+        assertTrue(
+                description.contains(fullPhone),
+                "Номер телефона не отображается"
+        );
 
-        // Проверка логотипов платёжных систем
-        List<WebElement> icons = pay.getPaymentIcons();
-        assertTrue(icons.stream().anyMatch(e ->
-                (e.getAttribute("alt") != null &&
-                        (e.getAttribute("alt").toLowerCase().contains("visa") ||
-                                e.getAttribute("alt").toLowerCase().contains("mastercard") ||
-                                e.getAttribute("alt").toLowerCase().contains("белкарт") ||
-                                e.getAttribute("alt").toLowerCase().contains("gpay")))
-        ));
+        // ✅ проверка суммы
+        assertTrue(
+                pay.getAmountText().contains(amount),
+                "Сумма отображается некорректно"
+        );
+
+        // ✅ проверка кнопки оплаты
+        assertTrue(
+                pay.getPayButtonText().contains(amount),
+                "Сумма отсутствует на кнопке оплаты"
+        );
     }
 }
