@@ -9,28 +9,29 @@ public class PlaceholdersTest extends DriverTest {
     @Test
     void checkPlaceholders() {
 
-        OnlineTopUpPage page = new OnlineTopUpPage(driver)
+        OnlinePayBlockPage page = new OnlinePayBlockPage(driver)
                 .open()
-                .closeCookies()
-                .scrollToForm();
+                .closeCookie()
+                .scroll();
 
-        page.tabServices();
-        assertEquals("Номер телефона", page.servicesPhonePH());
-        assertEquals("Сумма", page.servicesSumPH());
-        assertEquals("E-mail для отправки чека", page.servicesEmailPH());
+        page.openServices();
+        assertEquals("Номер телефона", page.servicesPhonePlaceholder());
+        assertEquals("Сумма", page.servicesSumPlaceholder());
+        assertEquals("E-mail для отправки чека", page.servicesEmailPlaceholder());
 
-        page.tabInternet();
-        assertEquals("Номер абонента", page.internetPhonePH());
-        assertEquals("Сумма", page.internetSumPH());
-        assertEquals("E-mail для отправки чека", page.internetEmailPH());
+        page.openInternet();
+        assertEquals("Номер абонента", page.internetPhonePlaceholder());
+        assertEquals("Сумма", page.internetSumPlaceholder());
+        assertEquals("E-mail для отправки чека", page.internetEmailPlaceholder());
 
-        page.tabInstallment();
-        assertEquals("Номер счета на 44", page.installmentScorePH());
-        assertEquals("Сумма", page.installmentSumPH());
-        assertEquals("E-mail для отправки чека", page.installmentEmailPH());
+        page.openInstallment();
+        assertEquals("Номер счета на 44", page.installmentScorePlaceholder());
+        assertEquals("Сумма", page.installmentSumPlaceholder());
+        assertEquals("E-mail для отправки чека", page.installmentEmailPlaceholder());
 
-        page.tabDebt();
-        assertEquals("Номер счета на 2073", page.debtScorePH());
-        assertEquals("Сумма", page.debtSumPH());
+        page.openDuty();
+        assertEquals("Номер счета на 2073", page.dutyScorePlaceholder());
+        assertEquals("Сумма", page.duutySumPlaceholder());
+        assertEquals("E-mail для отправки чека", page.dutyEmailPlaceholder());
     }
 }

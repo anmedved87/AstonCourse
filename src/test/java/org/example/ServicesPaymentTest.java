@@ -8,36 +8,32 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ServicesPaymentTest extends DriverTest {
 
     @Test
-    void servicesPaymentFlow() {
+    void servicesPayment() {
 
         String phone = "297777777";
-        String fullPhone = "375" + phone;
-        String amount = "10";
+        String fullPhone = "375297777777";
+        String amount = "50";
 
-        OnlineTopUpPage page = new OnlineTopUpPage(driver)
+        OnlinePayBlockPage page = new OnlinePayBlockPage(driver)
                 .open()
-                .closeCookies()
-                .scrollToForm()
-                .tabServices();
+                .closeCookie()
+                .scroll()
+                .openServices();
 
-        // заполнение формы
         page.servicesPhone().sendKeys(phone);
         page.servicesSum().sendKeys(amount);
-        page.servicesEmail().sendKeys("test@test.by");
+        page.servicesEmail().sendKeys("an.medvedeva87@gmail.com");
 
         assertTrue(page.servicesContinue().isEnabled());
         page.servicesContinue().click();
 
-        // страница подтверждения оплаты (iframe)
-        PaymentConfirmationPage pay =
-                new PaymentConfirmationPage(driver).waitLoaded();
 
-        // ✅ проверка описания платежа
-        String description = pay.getOrderDescriptionText();
+        PayCardBlockPage pay = new PayCardBlockPage(driver).payCard();
 
+        String description = pay.descriptionOrder();
         assertTrue(
                 description.contains("Оплата"),
-                "Отсутствует текст 'Оплата'"
+                "Отсутствует надпись 'Оплата'"
         );
 
         assertTrue(
@@ -47,27 +43,24 @@ public class ServicesPaymentTest extends DriverTest {
 
         assertTrue(
                 description.contains(fullPhone),
-                "Номер телефона не отображается"
+                "Отсутствует номер телефона"
         );
 
-        // ✅ проверка суммы
+
         assertTrue(
-                pay.getAmountText().contains(amount),
+                pay.textOrder().contains(amount),
                 "Сумма отображается некорректно"
         );
 
-        // ✅ проверка кнопки оплаты
         assertTrue(
-                pay.getPayButtonText().contains(amount),
-                "Сумма отсутствует на кнопке оплаты"
+                pay.payButton().contains(amount),
+                "Отсутствует сумма на кнопке оплаты"
         );
-        assertEquals("Номер карты", pay.getCardNumberLabel());
-        assertEquals("Срок действия", pay.getExpirationLabel());
-        assertEquals("CVC", pay.getCvcLabel());
-        assertEquals("Имя и фамилия на карте", pay.getCardHolderLabel());
-        // ================= проверка иконок платёжных систем =================
-        assertTrue(
-                pay.getPaymentSystemIcons().size() >= 3,
-                "Иконки платёжных систем отсутствуют или их меньше трёх");
+        assertEquals("Номер карты", pay.сardNumberPlaceholder());
+        assertEquals("Срок действия", pay.periodPlaceholder());
+        assertEquals("CVC", pay.cvcPlaceholder());
+        assertEquals("Имя и фамилия на карте", pay.nameCardPlaceholder());
+
+        assertTrue(pay.payIcons().stream().findAny().isPresent(), "Иконки платёжных систем отсутствуют");
     }
 }

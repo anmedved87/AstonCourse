@@ -6,24 +6,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class OnlineTopUpPage {
+public class OnlinePayBlockPage {
 
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    public OnlineTopUpPage(WebDriver driver) {
+    public OnlinePayBlockPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    // ---------- Общие действия ----------
-
-    public OnlineTopUpPage open() {
+    public OnlinePayBlockPage open() {
         driver.get("https://www.mts.by/");
         return this;
     }
 
-    public OnlineTopUpPage closeCookies() {
+    public OnlinePayBlockPage closeCookie() {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//button[contains(text(),'Принять')]")
@@ -33,13 +31,12 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    public OnlineTopUpPage scrollToForm() {
+    public OnlinePayBlockPage scroll() {
         ((JavascriptExecutor) driver)
                 .executeScript("window.scrollBy(0,1800)");
         return this;
     }
 
-    // ---------- Выбор типа услуги ----------
 
     private void openDropdown() {
         wait.until(ExpectedConditions.elementToBeClickable(
@@ -47,7 +44,7 @@ public class OnlineTopUpPage {
         )).click();
     }
 
-    public OnlineTopUpPage tabServices() {
+    public OnlinePayBlockPage openServices() {
         openDropdown();
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//p[text()='Услуги связи']")
@@ -55,7 +52,7 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    public OnlineTopUpPage tabInternet() {
+    public OnlinePayBlockPage openInternet() {
         openDropdown();
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//p[text()='Домашний интернет']")
@@ -63,7 +60,7 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    public OnlineTopUpPage tabInstallment() {
+    public OnlinePayBlockPage openInstallment() {
         openDropdown();
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//p[text()='Рассрочка']")
@@ -71,7 +68,7 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    public OnlineTopUpPage tabDebt() {
+    public OnlinePayBlockPage openDuty() {
         openDropdown();
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//p[text()='Задолженность']")
@@ -79,7 +76,6 @@ public class OnlineTopUpPage {
         return this;
     }
 
-    // ---------- Услуги связи ----------
 
     public WebElement servicesPhone() {
         return driver.findElement(By.id("connection-phone"));
@@ -97,61 +93,62 @@ public class OnlineTopUpPage {
         return driver.findElement(By.cssSelector("form#pay-connection button"));
     }
 
-    public String servicesPhonePH() {
+    public String servicesPhonePlaceholder() {
         return servicesPhone().getAttribute("placeholder");
     }
 
-    public String servicesSumPH() {
+    public String servicesSumPlaceholder() {
         return servicesSum().getAttribute("placeholder");
     }
 
-    public String servicesEmailPH() {
+    public String servicesEmailPlaceholder() {
         return servicesEmail().getAttribute("placeholder");
     }
 
-    // ---------- Домашний интернет ----------
-
-    public String internetPhonePH() {
+    public String internetPhonePlaceholder() {
         return driver.findElement(By.id("internet-phone"))
                 .getAttribute("placeholder");
     }
 
-    public String internetSumPH() {
+    public String internetSumPlaceholder() {
         return driver.findElement(By.id("internet-sum"))
                 .getAttribute("placeholder");
     }
 
-    public String internetEmailPH() {
+    public String internetEmailPlaceholder() {
         return driver.findElement(By.id("internet-email"))
                 .getAttribute("placeholder");
     }
 
-    // ---------- Рассрочка ----------
 
-    public String installmentScorePH() {
+    public String installmentScorePlaceholder() {
         return driver.findElement(By.id("score-instalment"))
                 .getAttribute("placeholder");
     }
 
-    public String installmentSumPH() {
+    public String installmentSumPlaceholder() {
         return driver.findElement(By.id("instalment-sum"))
                 .getAttribute("placeholder");
     }
 
-    public String installmentEmailPH() {
+    public String installmentEmailPlaceholder() {
         return driver.findElement(By.id("instalment-email"))
                 .getAttribute("placeholder");
     }
 
-    // ---------- Задолженность ----------
 
-    public String debtScorePH() {
+    public String dutyScorePlaceholder() {
         return driver.findElement(By.id("score-arrears"))
                 .getAttribute("placeholder");
     }
 
-    public String debtSumPH() {
+    public String duutySumPlaceholder() {
         return driver.findElement(By.id("arrears-sum"))
+                .getAttribute("placeholder");
+    }
+
+    public String dutyEmailPlaceholder() {
+        return driver.findElement(By.id("arrears-email"))
                 .getAttribute("placeholder");
     }
 }
