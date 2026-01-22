@@ -54,13 +54,24 @@ public class PaymentConfirmationPage {
         ).getText();
     }
 
-    public List<WebElement> getCardFields() {
-        return driver.findElements(By.xpath("//input[@placeholder]"));
+
+    public String getCardNumberLabel() {
+        return driver.findElement(By.xpath("//label[text()='Номер карты']")).getText();
     }
 
-    public List<WebElement> getPaymentIcons() {
-        return driver.findElements(
-                By.cssSelector(".pay-methods img")
-        );
+    public String getExpirationLabel() {
+        return driver.findElement(By.xpath("//label[text()='Срок действия']")).getText();
+    }
+
+    public String getCvcLabel() {
+        return driver.findElement(By.xpath("//label[text()='CVC']")).getText();
+    }
+
+    public String getCardHolderLabel() {
+        return driver.findElement(By.xpath("//label[text()='Имя и фамилия на карте']")).getText();
+    } // ================= иконки платёжных систем =================
+
+    public List<WebElement> getPaymentSystemIcons() {
+        return driver.findElements(By.cssSelector(".cards-brands__container img"));
     }
 }

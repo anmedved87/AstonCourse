@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ServicesPaymentTest extends DriverTest {
@@ -60,5 +61,13 @@ public class ServicesPaymentTest extends DriverTest {
                 pay.getPayButtonText().contains(amount),
                 "Сумма отсутствует на кнопке оплаты"
         );
+        assertEquals("Номер карты", pay.getCardNumberLabel());
+        assertEquals("Срок действия", pay.getExpirationLabel());
+        assertEquals("CVC", pay.getCvcLabel());
+        assertEquals("Имя и фамилия на карте", pay.getCardHolderLabel());
+        // ================= проверка иконок платёжных систем =================
+        assertTrue(
+                pay.getPaymentSystemIcons().size() >= 3,
+                "Иконки платёжных систем отсутствуют или их меньше трёх");
     }
 }
