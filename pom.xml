@@ -27,6 +27,12 @@
             <artifactId>selenium-java</artifactId>
             <version>4.26.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.24.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -38,6 +44,12 @@
                 <configuration>
                     <useModulePath>false</useModulePath>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
             </plugin>
         </plugins>
     </build>

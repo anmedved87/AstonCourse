@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import io.qameta.allure.Step;
 
 public class PayCardBlockPage {
 
@@ -16,6 +17,7 @@ public class PayCardBlockPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
+
 
     public PayCardBlockPage payCard() {
 
@@ -30,19 +32,21 @@ public class PayCardBlockPage {
         ));
         return this;
     }
-
+    @Step("Проверить описание оплаты")
     public String descriptionOrder() {
         return driver.findElement(
                 By.cssSelector(".payment-page__order-description")
         ).getText();
     }
 
+    @Step("Проверить сумму оплаты")
     public String textOrder() {
         return driver.findElement(
                 By.cssSelector(".pay-description__cost span")
         ).getText();
     }
 
+    @Step("Проверить сумму на кнопке Продолжить")
     public String payButton() {
         return driver.findElement(
                 By.cssSelector("button[type='submit']")
