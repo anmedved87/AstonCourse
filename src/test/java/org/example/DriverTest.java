@@ -10,7 +10,7 @@ public class DriverTest {
     protected WebDriver driver;
     @BeforeEach
     void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "java/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
